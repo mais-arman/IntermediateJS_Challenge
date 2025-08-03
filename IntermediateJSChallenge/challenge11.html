@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge11</title>
+</head>
+<body>
+  <script>
+    function readFromDatabase(callback) {
+      setTimeout(() => {
+        const data = { id: 1, name: 'User from Data Base' };
+        callback(data);
+      }, 1000);
+    }
+
+    readFromDatabase((data) => {
+      console.log('Data:', data);
+    });
+  </script>
+</body>
+</html>

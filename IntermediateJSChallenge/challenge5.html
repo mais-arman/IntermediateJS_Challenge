@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge5</title>
+</head>
+<body>
+  <script>
+    const api1 = 'https://jsonplaceholder.typicode.com/posts/1';
+    const api2 = 'https://jsonplaceholder.typicode.com/users/1';
+    const api3 = 'https://jsonplaceholder.typicode.com/comments/1';
+
+    const promises = [api1, api2, api3].map(url => fetch(url).then(res => res.json()));
+
+    Promise.all(promises)
+      .then(results => {
+        console.log('All API received:');
+        results.forEach((result, index) => {
+          console.log(`Response from API ${index + 1}:`, result);
+        });
+      })
+      .catch(error => {
+        console.error('API failed:', error);
+      });
+  </script>
+</body>
+</html>

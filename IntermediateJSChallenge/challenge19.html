@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge19</title>
+</head>
+<body>
+  <script>
+    class BankAccount {
+      #balance = 0;  
+
+      constructor(initialBalance) {
+        this.#balance = initialBalance;
+      }
+
+      deposit(amount) {
+        if (amount > 0) {
+          this.#balance += amount;
+          console.log(`Deposited: ${amount}, New balance: ${this.#balance}`);
+        } else {
+          console.log('Invalid');
+        }
+      }
+
+      withdraw(amount) {
+        if (amount > 0 && amount <= this.#balance) {
+          this.#balance -= amount;
+          console.log(`Withdrew: ${amount}, New balance: ${this.#balance}`);
+        } else {
+          console.log('Invalid');
+        }
+      }
+
+      getBalance() {
+        return this.#balance;
+      }
+    }
+
+    const account = new BankAccount(100);
+    account.deposit(70);
+    account.withdraw(20);
+    console.log('Current Balance:', account.getBalance());
+  </script>
+</body>
+</html>

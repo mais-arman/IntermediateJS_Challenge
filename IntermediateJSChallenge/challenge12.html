@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge12</title>
+</head>
+<body>
+  <script>
+    function fetchData(callback) {
+      setTimeout(() => {
+        const data = { id: 1, name: 'Mais' };
+        callback(data);
+      }, 1000);
+    }
+
+    function processData(data, callback) {
+    setTimeout(() => {
+      const nameLength = data.name.length;
+      callback(`Length of name is: ${nameLength}`);
+    }, 1000);
+  }
+
+    fetchData(function(data) {
+      processData(data, function(result) {
+        console.log(result);
+      });
+    });
+  </script>
+</body>
+</html>

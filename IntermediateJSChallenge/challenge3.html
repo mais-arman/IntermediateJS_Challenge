@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge3</title>
+</head>
+<body>
+  <script>
+    const maisPromise1 = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve("Mais 1");
+      }, 1000);
+    });
+
+    maisPromise1 
+      .then((value1) => {
+        console.log(value1);
+        document.body.innerHTML += `<p>${value1}</p>`;
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve("Mais 2");
+          }, 1000);
+        });
+      })
+      .then((value2) => {
+        console.log(value2);
+        document.body.innerHTML += `<p>${value2}</p>`;
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        document.body.innerHTML += `<p style="color:red;">Error: ${error}</p>`;
+      });
+  </script>
+</body>
+</html>

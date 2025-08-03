@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge4</title>
+</head>
+<body>
+  <script>
+    const promise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (Math.random() < 0.5) {
+          resolve("Success");
+        } else {
+          reject(new Error("Error"));
+        }
+      }, 1000);
+    });
+
+    promise
+      .then(msg => console.log("Then:", msg))
+      .catch(err => console.error("Catch:", err.message))
+      .finally(() => console.log("Finally: The promise is settled"));
+  </script>
+</body>
+</html>

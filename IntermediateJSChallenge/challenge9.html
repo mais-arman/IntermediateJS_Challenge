@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge9</title>
+</head>
+<body>
+  <script>
+    async function asyncOperation(id) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve(`${id}`);
+        }, 1000);
+      });
+    }
+
+    async function main() {
+      const results = await Promise.all([
+        asyncOperation(1),
+        asyncOperation(2),
+        asyncOperation(3),
+      ]);
+      console.log(results);
+    }
+
+    main();
+  </script>
+</body>
+</html>
